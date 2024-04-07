@@ -15,7 +15,7 @@ public class MyNode {
     MyNode(Object e) {
         element = e;
         parent = null;
-        children = null;
+        children = new ArrayList();
     }
 
     // implement the following methods
@@ -46,4 +46,5 @@ public class MyNode {
     public void setChildren(ArrayList children) {
         this.children = children;
     }
+
 }
