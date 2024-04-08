@@ -12,7 +12,7 @@ public class MyTree {
     }
 
     MyTree(Object e) {
-        root = new MyNode(e);
+        root = new MyBinNode(e);
         root.setChildren(new ArrayList());
         this.size = 1;
     }

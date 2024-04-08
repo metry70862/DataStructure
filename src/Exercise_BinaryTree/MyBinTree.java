@@ -93,7 +93,12 @@ public class MyBinTree extends MyTree {
                 removeChild(parent, 1);
             }
         } else {
-            MyBinNode child = left(v) != null ? left(v) : right(v); // Get the non-null child
+            MyBinNode child;
+            if (left(v) != null) {
+                child = left(v);
+            } else {
+                child = right(v);
+            }// Choose non-null child
 
             // Connect the child to v's parent
             if (parent != null) {
@@ -104,10 +109,9 @@ public class MyBinTree extends MyTree {
                 }
             }
             if (child != null) {
-                child.setParent(parent); // Update child's parent reference
+                child.setParent(parent);
             }
         }
-        // v를 삭제하고 반환
         return v;
     }
 
