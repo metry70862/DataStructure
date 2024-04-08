@@ -35,8 +35,12 @@ public class Exercise1 {
         System.out.println();
         System.out.println("* Tree size = Total " + tree.size() + " Nodes");
     }
+
     public static int depth(MyNode v) {
-        if(v.parent() == null) { return 0; }
-        else { return 1 + depth(v.parent()); }
+        if (v.parent() == null) {
+            return 0;
+        } else {
+            return 1 + depth(v.parent());
+        }
     } //Find node's level
 }

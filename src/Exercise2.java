@@ -19,6 +19,7 @@ public class Exercise2 {
         System.out.println("Preorder traversal:");
         preOrder(tree.root(), 0);
     }
+
     public static void preOrder(MyNode node, int depth) {
         if (node != null) {
             for (int i = 0; i < depth; i++) {

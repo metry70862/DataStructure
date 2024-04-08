@@ -32,6 +32,7 @@ public class MyTree {
         return children(v).isEmpty();
     }
 
+
     public MyNode addRoot(Object e) {
         if (root == null) {
             root = new MyNode(e);
@@ -40,6 +41,7 @@ public class MyTree {
         }
         return root;
     }
+
 
     public MyNode addNode(Object e) {
         if (root == null) {
@@ -85,7 +87,6 @@ public class MyTree {
         }
         return null; // Index out of bounds
     }
-
 
 
 }
