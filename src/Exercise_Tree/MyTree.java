@@ -1,3 +1,5 @@
+package Exercise_Tree;
+
 import java.util.ArrayList;
 
 public class MyTree {
@@ -50,6 +52,7 @@ public class MyTree {
             MyNode newNode = new MyNode(e);
             newNode.setParent(this.root);
             this.root.children().add(newNode);
+            size++;
             return newNode;
         }
     }

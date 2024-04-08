@@ -1,4 +1,4 @@
-/*
+package Exercise_Tree;/*
 This class is only used for Lab 3.
 This is a class that allows each node to contain the file name and file size.
 
