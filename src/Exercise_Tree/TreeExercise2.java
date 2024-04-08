@@ -1,6 +1,6 @@
 package Exercise_Tree;
 
-public class Exercise2 {
+public class TreeExercise2 {
     public static void main(String[] args) {
         MyTree tree = new MyTree("Make Money Fast");
 

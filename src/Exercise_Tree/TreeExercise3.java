@@ -1,6 +1,6 @@
 package Exercise_Tree;
 
-public class Exercise3 {
+public class TreeExercise3 {
     public static void main(String[] args) {
         MyTree tree = new MyTree(new FileNodeElement("cs16/", 0));
 
