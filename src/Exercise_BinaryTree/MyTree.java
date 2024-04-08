@@ -36,12 +36,10 @@ public class MyTree {
 
 
     public MyNode addRoot(Object e) {
-        if (root == null) {
-            root = new MyNode(e);
-            root.setChildren(new ArrayList());
-            return root;
-        }
+        root = new MyNode(e);
+        root.setChildren(new ArrayList());
         return root;
+
     }
 
 
@@ -58,11 +56,19 @@ public class MyTree {
     }
 
     public MyNode addChild(MyNode v, Object e) {
-        MyNode newNode = new MyNode(e);
-        newNode.setParent(v);
-        size++;
-        v.children().add(newNode);
-        return newNode;
+        if(e instanceof MyBinNode){
+            ((MyBinNode) e).setParent(v);
+            size++;
+            v.children().add(e);
+            return (MyNode) e;
+        }else {
+            MyNode newNode = new MyNode(e);
+            newNode.setParent(v);
+            size++;
+            v.children().add(newNode);
+            return newNode;
+        }
+
     }
 
     public MyNode addChild(MyNode v, int i, Object e) {
