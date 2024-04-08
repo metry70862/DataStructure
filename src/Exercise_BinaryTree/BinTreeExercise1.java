@@ -22,11 +22,9 @@ public class BinTreeExercise1 {
 
 
 
-        System.out.println();
-        System.out.println("Inorder Traverse:");
         InorderTraverse(myBinTree.root());
         System.out.println();
-        System.out.println("Postorder Traverse:");
+        System.out.print("=");
         System.out.println(calculateExpression(myBinTree.root()));
     }
 
