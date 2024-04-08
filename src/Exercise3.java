@@ -44,7 +44,7 @@ public class Exercise3 {
                 FileNodeElement fileNode = (FileNodeElement) child.element();
                 sum += fileNode.getFilesize();
             } else {
-                // 디렉토리인 경우 재귀적으로 크기를 합산
+                //If it is a directory, add up the size recursively
                 sum += sumFileSize(child);
             }
         }
