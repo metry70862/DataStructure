@@ -21,6 +21,7 @@ public class Exercise3 {
 
     }
 
+
     public static void postOrder(MyNode node) {
         if (node != null) {
             for (Object obj : node.children()) {
@@ -44,7 +45,7 @@ public class Exercise3 {
                 FileNodeElement fileNode = (FileNodeElement) child.element();
                 sum += fileNode.getFilesize();
             } else {
-                //If it is a directory, add up the size recursively
+                // If it is a directory, add up the size recursively
                 sum += sumFileSize(child);
             }
         }
