@@ -47,7 +47,7 @@ public class MyTree {
         } else {
             MyNode newNode = new MyNode(e);
             newNode.setParent(this.root);
-            addChild(root, e);
+            this.root.children().add(newNode);
             return newNode;
         }
     }

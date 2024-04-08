@@ -1,18 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        MyTree tree = new MyTree("Make Money Fast");
+        MyTree tree = new MyTree(new FileNodeElement("cs16/", 0));
 
         //Level 1 Nodes
-        MyNode motivations = tree.addNode("1.Motivations");
-        MyNode methods = tree.addNode("2.Methods");
-        MyNode references = tree.addNode("3.References");
+        MyNode homeworks = tree.addNode(new FileNodeElement("homeworks/", 0));
+        MyNode programs = tree.addNode(new FileNodeElement("programs/", 0));
+        MyNode todo = tree.addNode(new FileNodeElement("todo.txt", 1));
 
         //Level 2 Nodes
-        MyNode greed = tree.addChild(motivations, "1.1Greed");
-        MyNode avidity = tree.addChild(motivations, "1.2Avidity");
+        MyNode h1c = tree.addChild(homeworks,new FileNodeElement("h1c.doc", 3));
+        MyNode h1nc = tree.addChild(homeworks, new FileNodeElement("h1nc.doc", 2));
 
-        MyNode stockFraud = tree.addChild(methods, "2.1Stock Fraud");
-        MyNode PonziScheme = tree.addChild(methods, "2.2PonziScheme");
-        MyNode bankRobbery = tree.addChild(methods, "2.3BankRobbery");
+        MyNode ddr = tree.addChild(programs, new FileNodeElement("DDR.java", 10));
+        MyNode stock = tree.addChild(programs, new FileNodeElement("Stock.java", 25));
+        MyNode robot = tree.addChild(programs, new FileNodeElement("Robot.java", 20));
     }
 }
