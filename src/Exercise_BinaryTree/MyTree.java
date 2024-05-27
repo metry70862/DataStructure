@@ -36,6 +36,11 @@ public class MyTree {
 
 
     public MyNode addRoot(Object e) {
+        if(e instanceof MyBinNode){
+            MyBinNode v = (MyBinNode)e;
+            root = v;
+            return (MyNode)root;
+        }
         root = new MyNode(e);
         root.setChildren(new ArrayList());
         return root;

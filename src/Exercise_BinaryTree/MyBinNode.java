@@ -3,10 +3,14 @@ package Exercise_BinaryTree;
 public class MyBinNode extends MyNode {
     MyBinNode(){
         super();
+        this.children().add(0,null);
+        this.children().add(1,null);
     }
 
     MyBinNode(Object e){
         super(e);
+        this.children().add(0,null);
+        this.children().add(1,null);
     }
 
     public MyBinNode left() {
@@ -25,9 +29,12 @@ public class MyBinNode extends MyNode {
     }
 
     public void setLeft(MyBinNode v){
-        this.children().add(0, v);
+        this.children().set(0, v);
     }
     public void setRight(MyBinNode v){
-        this.children().add(1, v);
+        if(this.children() != null && this.children().size() > 1){
+            this.children().set(1, v);
+        }
+
     }
 }

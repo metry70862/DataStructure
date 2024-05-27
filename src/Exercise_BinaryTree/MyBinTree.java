@@ -52,6 +52,11 @@ public class MyBinTree extends MyTree {
     }
 
     public MyBinNode addRoot(Object e) {
+        if (e instanceof MyBinNode) {
+            MyBinNode v = (MyBinNode) e;
+            super.addRoot(v);
+            return v;
+        }
         MyBinNode newNode = new MyBinNode(e);
         super.addRoot(newNode);
         return newNode;
