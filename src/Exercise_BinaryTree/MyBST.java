@@ -90,52 +90,62 @@ public class MyBST extends MyBinTree {
         return k;
     }
 
-        public Object remove(Object k) {
-        MyBinNode nodeToRemove = this.root();
-        while (nodeToRemove != null && (int) nodeToRemove.element() != (int) k) {
-            if ((int) k < (int) nodeToRemove.element()) {
-                nodeToRemove = nodeToRemove.left();
+    //1. 삭제하는 노드가 자식노드를 갖고 있지 않을때
+    //2. 삭제하는 노드의 자식노드가 1개일때
+    //3. 삭제하는 노드가 왼쪽, 오른쪽 자식을 모두 가지고 있을때
+    public Object remove(Object k) {
+        MyBinNode node = this.root();
+        MyBinNode parent = null;
+
+        while (node != null && (int) node.element() != (int) k) {
+            parent = node;
+            if ((int) node.element()>=(int) k) {
+                node = node.left();
             } else {
-                nodeToRemove = nodeToRemove.right();
+                node = node.right();
             }
         }
 
-        if (nodeToRemove == null) return null;
+        if (node == null) return null;
 
-        // Node has two children
-        if (nodeToRemove.left() != null && nodeToRemove.right() != null) {
-            MyBinNode successor = nextNode(nodeToRemove);
-            nodeToRemove.setElement(successor.element());
-            nodeToRemove = successor; // Now remove the successor
+        // Case 1
+        if (node.left() == null && node.right() == null) {
+            if (node == this.root()) {
+                return null;
+            } else if (node == parent.left()) {
+                parent.setLeft(null);
+            } else {
+                parent.setRight(null);
+            }
         }
+        // Case 2
+        else if (node.left() == null || node.right() == null) {
+            MyBinNode child;
+            if (node.left() != null) {
+                child = node.left();
+            } else {
+                child = node.right();
+            }
+            if (node == this.root()) {
+                this.root = child;
+            } else if (node == parent.left()) {
+                parent.setLeft(child);
+            } else {
+                parent.setRight(child);
+            }
+            child.setParent(parent);
+        }
+        // Case 3
+        else {
+            MyBinNode successor = nextNode(node);
+            remove(successor.element());
+            node.setElement(successor.element());
 
-        // Node has one or zero children
-        MyBinNode replacement = (nodeToRemove.left() != null) ? nodeToRemove.left() : nodeToRemove.right();
-        if (replacement != null) {
-            replacement.setParent((MyBinNode) nodeToRemove.parent());
-            if (nodeToRemove.parent() == null) {
-                this.addRoot(replacement);
-            } else if (nodeToRemove == ((MyBinNode) nodeToRemove.parent()).left()) {
-                ((MyBinNode) nodeToRemove.parent()).setLeft(replacement);
-            } else {
-                ((MyBinNode) nodeToRemove.parent()).setRight(replacement);
-            }
-            nodeToRemove.setLeft(null);
-            nodeToRemove.setRight(null);
-            nodeToRemove.setParent(null);
-        } else if (nodeToRemove.parent() == null) { // Node is root and has no children
-            this.addRoot(null);
-        } else { // Node has no children
-            if (nodeToRemove == nodeToRemove.parent().left()) {
-                nodeToRemove.parent().setLeft(null);
-            } else {
-                nodeToRemove.parent().setRight(null);
-            }
-            nodeToRemove.setParent(null);
         }
 
         return k;
     }
+
     public void printTree() {
         printInOrder(this.root());
     }

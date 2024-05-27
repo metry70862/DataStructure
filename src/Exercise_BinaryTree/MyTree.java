@@ -3,7 +3,7 @@ package Exercise_BinaryTree;
 import java.util.ArrayList;
 
 public class MyTree {
-    private MyNode root;
+    MyNode root;
     private int size;
 
     // implement constructors
